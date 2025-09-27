@@ -25,6 +25,7 @@ retrieved_at,stand_date,status_text,target_date
 - Python 3.11+ (no additional packages required)
 - `just` command runner (optional, for convenience)
 - `uv` with `uvx` (for linting/formatting)
+- Bun with `bunx` (only required if you plan to run the prettier lint/format recipes)
 
 ## Usage
 
@@ -95,4 +96,4 @@ Automatically updates the status data every 8 hours:
 
 The automated updates ensure the dataset stays current without manual intervention.
 
-**Setup**: Push the workflows to your GitHub repository to activate automated runs. No additional configuration required.
+**Setup**: Push the workflows to your GitHub repository to activate automated runs. Ensure the workflow token can write repository contents (GitHub Actions → General → Workflow permissions → "Read and write" or set `permissions: contents: write` in the workflow) so the scheduled job can commit `results.csv` updates. No other configuration required.
