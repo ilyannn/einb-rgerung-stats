@@ -17,16 +17,44 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Set up Bun
+      - name: Install uv
+        uses: astral-sh/setup-uv@v1
+
+      - name: Lint Python code
+        run: uvx ruff check update_results.py tests
+
+      - name: Check Python code formatting
+        run: uvx ruff format --check update_results.py tests
+
+      - name: Run tests
+        run: python -m unittest discover
+
+  just-recipes:
+    needs: lint-format-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v1
+
+      - name: Install Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
 
-      - name: Lint Python code
-        run: bunx ruff check update_results.py tests
+      - name: Install just
+        uses: taiki-e/install-action@v2
+        with:
+          tool: just
 
-      - name: Check Python code formatting
-        run: bunx ruff format --check update_results.py tests
+      - name: Run just lint
+        run: just lint
 
-      - name: Run tests
-        run: python -m unittest discover
+      - name: Run just test
+        run: just test
