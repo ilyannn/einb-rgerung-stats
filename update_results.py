@@ -14,7 +14,7 @@ from html.parser import HTMLParser
 from typing import Iterable, Optional
 from urllib.request import urlopen
 
-URL = "https://vv.potsdam.de/vv/produkte/173010100000003814.php"
+URL = "https://vv.potsdam.de/vv/produkte/arbeitsgruppe-einbuergerung/173010100000003814.php"
 
 GERMAN_MONTHS = {
     "januar": 1,

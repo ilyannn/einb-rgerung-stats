@@ -1,6 +1,6 @@
 # Einbürgerung Processing Status
 
-This repository tracks the public processing notice from [Potsdam's naturalization group](https://vv.potsdam.de/vv/produkte/173010100000003814.php) and keeps a timestamped history in `results.csv`.
+This repository tracks the public processing notice from [Potsdam's naturalization group](https://vv.potsdam.de/vv/produkte/arbeitsgruppe-einbuergerung/173010100000003814.php) and keeps a timestamped history in `results.csv`.
 
 ## How It Works
 
